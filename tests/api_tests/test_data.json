@@ -1,0 +1,55 @@
+[
+    {
+        "case_id": "VOICE_001",
+        "desc": "正确识别普通话-正常音量",
+        "params": {
+            "lang": "mandarin",
+            "duration": 5
+        },
+        "file_size_kb": 120,
+        "expect_code": 20000
+    },
+    {
+        "case_id": "VOICE_002",
+        "desc": "正确识别四川方言",
+        "params": {
+            "lang": "sichuanese",
+            "duration": 8
+        },
+        "file_size_kb": 180,
+        "expect_code": 20000
+    },
+    {
+        "case_id": "VOICE_003",
+        "desc": "异常场景：录音文件格式不支持(txt)",
+        "params": {
+            "lang": "mandarin",
+            "duration": 2
+        },
+        "file_size_kb": 10,
+        "expect_code": 40001,
+        "expect_msg": "不支持的文件格式"
+    },
+    {
+        "case_id": "VOICE_004",
+        "desc": "边界值：超大录音文件拦截(>10MB)",
+        "params": {
+            "lang": "mandarin",
+            "duration": 600
+        },
+        "file_size_kb": 11000,
+        "expect_code": 40013,
+        "expect_msg": "文件大小超出限制"
+    },
+    {
+        "case_id": "VOICE_005",
+        "desc": "异常场景：录音为空白静音",
+        "params": {
+            "lang": "mandarin",
+            "duration": 5
+        },
+        "file_size_kb": 45,
+        "expect_code": 20000,
+        "expect_msg": "未识别到人声"
+    }
+]
